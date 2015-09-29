@@ -10,5 +10,5 @@ module.exports = function (app) {
 };
 
 router.get('/', function (req, res) {
-  res.status(200).send({version: "0.0.1 posts"});
+  res.status(200).send("#GDLJS, la mejor comunidad para aprender a autenticar peticiones");
 });

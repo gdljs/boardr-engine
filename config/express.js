@@ -7,7 +7,6 @@ var compress = require('compression');
 var methodOverride = require('method-override');
 
 //auth
-var jwt = require('jsonwebtoken');
 var expressJWT = require('express-jwt');
 
 module.exports = function(app, config) {
@@ -34,7 +33,7 @@ module.exports = function(app, config) {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
     // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
 
     // Set to true if you need the website to include cookies in the requests sent
     // to the API (e.g. in case you use sessions)
@@ -43,6 +42,8 @@ module.exports = function(app, config) {
     // Pass to next layer of middleware
     next();
   });
+
+  app.use(expressJWT({ secret: 'fcyheIBdgWhIiuhcZ1GaSmd2YZF9MyNHgnHt1Las1WET4x8VlUTgkPShArwT'}).unless({path: ['/', '/api/auth/signup', '/api/auth/login']}));
 
   var routes = [];
   routes = glob.sync(config.root + '/app/routes/*.js');

@@ -26,7 +26,7 @@ var config = {
     app: {
       name: 'boardr'
     },
-    port: 3000,
+    port: process.env.PORT,
     db: process.env.MONGOLAB_URI
   }
 };

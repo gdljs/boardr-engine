@@ -27,7 +27,7 @@ var config = {
       name: 'boardr'
     },
     port: 3000,
-    db: 'mongodb://localhost/boardr-production'
+    db: 'mongodb://memo:memo@ds051843.mongolab.com:51843/heroku_9bc0771h'
   }
 };
 
